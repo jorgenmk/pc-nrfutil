@@ -43,7 +43,7 @@ from enum import Enum
 class NordicEnum(Enum):
   @classmethod
   def tostring(cls, val):
-    for k,v in vars(cls).iteritems():
+    for k,v in vars(cls).items():
         if v==val:
             return k
 
@@ -64,14 +64,14 @@ def query_func(question, default=False):
         prompt = " [y/N]"
 
     while True:
-        print "%s %s" % (question, prompt)
-        choice = raw_input().lower()
+        print("%s %s" % (question, prompt))
+        choice = input().lower()
         if choice == '':
             return default
         elif choice in valid:
             return valid[choice]
         else:
-            print "Please respond with y/n"
+            print("Please respond with y/n")
 
 
 def convert_uint16_to_array(value):

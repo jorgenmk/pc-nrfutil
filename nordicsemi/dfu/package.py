@@ -55,7 +55,7 @@ from nordicsemi.dfu.manifest import ManifestGenerator, Manifest
 from nordicsemi.dfu.model import HexType, FirmwareKeys
 from nordicsemi.dfu.crc16 import *
 
-from signing import Signing
+from .signing import Signing
 
 HexTypeToInitPacketFwTypemap = {
     HexType.APPLICATION: DFUType.APPLICATION,
@@ -326,7 +326,7 @@ DFU Package: <{0}>:
                                      sd_size=softdevice_size,
                                      bl_size=bootloader_size)
 
-        for key, firmware_data in self.firmwares_data.iteritems():
+        for key, firmware_data in self.firmwares_data.items():
 
             # Normalize the firmware file and store it in the work directory
             firmware_data[FirmwareKeys.BIN_FILENAME] = \
