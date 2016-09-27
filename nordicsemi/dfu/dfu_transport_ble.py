@@ -362,7 +362,7 @@ class DfuTransportBle(DfuTransport):
         current_pnr     = 0
         for i in range(0, len(data), DfuTransportBle.DATA_PACKET_SIZE):
             to_transmit     = data[i:i + DfuTransportBle.DATA_PACKET_SIZE]
-            self.dfu_adapter.write_data_point(list(to_transmit))
+            self.dfu_adapter.write_data_point(to_transmit)
             crc     = binascii.crc32(to_transmit, crc) & 0xFFFFFFFF
             offset += len(to_transmit)
             current_pnr    += 1
